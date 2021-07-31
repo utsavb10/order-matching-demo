@@ -22,3 +22,4 @@ https://dagger.dev/api/latest/dagger/package-summary.html
 https://stackoverflow.com/questions/39953933/dagger-2-two-provides-method-that-provide-same-interface
 https://stackoverflow.com/questions/39932780/dagger-2-error-while-getting-a-multiple-instances-of-same-object-with-named
 https://stackoverflow.com/questions/40139428/dagger-2-injecting-multiple-objects-of-same-type-using-named-not-working
+https://developer.android.com/training/dependency-injection/dagger-basics#java
