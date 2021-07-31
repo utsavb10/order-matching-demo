@@ -7,16 +7,25 @@ import com.navi.demo.entity.StockTransaction;
 import com.navi.demo.repository.StockOrderRepository;
 import com.navi.demo.repository.StockTransactionRepository;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.List;
 import java.util.Set;
 
 import static com.navi.demo.entity.OrderType.BUY;
 import static com.navi.demo.entity.OrderType.SELL;
 
+@Singleton
 public class OrderMatchingService {
 
-	public final StockOrderRepository stockOrderRepository = new StockOrderRepository();
-	public final StockTransactionRepository stockTransactionRepository = StockTransactionRepository.getStockTransactionRepository();
+	public final StockOrderRepository stockOrderRepository;
+	public final StockTransactionRepository stockTransactionRepository;
+
+	@Inject
+	public OrderMatchingService(StockOrderRepository stockOrderRepository, StockTransactionRepository stockTransactionRepository) {
+		this.stockOrderRepository = stockOrderRepository;
+		this.stockTransactionRepository = stockTransactionRepository;
+	}
 
 	public Set<Stock> createStockOrderFromFile(String fileName){
 		List<StockOrder> orders = InputFileProcessor.readOrdersFromFile(fileName);

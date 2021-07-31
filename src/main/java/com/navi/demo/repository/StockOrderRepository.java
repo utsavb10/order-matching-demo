@@ -6,6 +6,7 @@ import com.navi.demo.entity.StockOrder;
 import com.navi.demo.repository.impl.BuyOrderRepository;
 import com.navi.demo.repository.impl.SellOrderRepository;
 
+import javax.inject.Inject;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +16,10 @@ import static com.navi.demo.entity.OrderType.SELL;
 public class StockOrderRepository {
 	private static final OrderRepository buyRepository = new BuyOrderRepository();
 	private static final OrderRepository sellRepository = new SellOrderRepository();
+
+	@Inject
+	public StockOrderRepository() {
+	}
 
 	public void addOrder(StockOrder order){
 		getOrderRepository(order.getType()).addOrder(order);
